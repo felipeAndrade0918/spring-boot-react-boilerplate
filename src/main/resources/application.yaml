@@ -1,0 +1,46 @@
+# Use "--spring.profiles.active=local" to pick a profile
+server:
+   port: 8080
+
+spring:
+  h2:
+    console:
+      enabled: true
+     
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+             
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+        
+spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS: true
+
+---
+
+spring:
+  profiles: local
+  jpa:
+    database: MYSQL
+    show-sql: false
+    hibernate:
+        ddl-auto: update
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/your-database
+    username: caso-varginha
+    password: o-roswell-brasileiro
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      max-active: 50
+      max-idle: 20
+      min-idle: 10
+      test-while-idle: true
+      test-on-borrow: true
+      validation-query: SELECT 1
+      time-between-eviction-runs-millis: 5000
+      min-evictable-idle-time-millis: 60000  
