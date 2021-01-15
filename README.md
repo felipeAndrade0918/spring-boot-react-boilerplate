@@ -1,2 +1,2 @@
 # spring-boot-react-boilerplate
-A project ready to be used by a React application.
+A Spring Boot project ready to be used by a React application.
